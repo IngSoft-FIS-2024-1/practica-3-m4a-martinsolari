@@ -27,9 +27,14 @@ describe('Book', () => {
   it('check title is not empty', () => {
     expect(() => myBook = new Book('', 'Horacio Quiroga', 350)).toThrow();
   });
-
+  
   it('check author is a string', () => {
-    // TODO
+    expect(() => myBook = new Book('Titulo', null, 350)).toThrow();
+  });
+
+  it('empty author is converted to "Anónimo"', () => {
+    const anonBook = new Book('Titulo', '', 350);
+    expect(anonBook.getAuthor()).toBe('Anónimo');
   });
 
   it('check page param is a number', () => {
