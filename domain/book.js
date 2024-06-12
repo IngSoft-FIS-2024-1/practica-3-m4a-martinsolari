@@ -24,7 +24,7 @@ class Book {
   }
 
   getWords() {
-    // TODO
+    return this.#words;
   }
 
   setTitle(title) {
@@ -60,12 +60,16 @@ class Book {
     this.#pages = pages;
   }
 
-  setWords() {
-    // TODO
+  setWords(words) {
+    if (typeof (words) !== 'number' || isNaN(words)) {
+      throw new Error();
+    }
+    words = Math.trunc(words);
+    this.#words = words;
   }
 
   wordsPerPage() {
-    // TODO
+    return this.#words / this.#pages;
   }
 
   toString() {

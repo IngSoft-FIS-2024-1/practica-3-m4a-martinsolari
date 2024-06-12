@@ -38,14 +38,29 @@ describe('Book', () => {
   });
 
   it('check page param is a number', () => {
-    // TODO
+    expect(() => myBook = new Book('Titulo', 'Autor', 'a')).toThrow();
   });
 
   it('check pages not < 1', () => {
-    // TODO
+    expect(() => myBook = new Book('Titulo', 'Autor', 0)).toThrow();
   });
+
   it('toString()', () => {
-    // TODO
+    expect(myBook.toString()).toBe('Título: Cuentos de la Selva Autor: Horacio Quiroga Páginas: 350');
+  });
+
+  it('check words is a number', () => {
+    expect(() => myBook.setWords('a')).toThrow();
+  });
+
+  it('return words', () => {
+    myBook.setWords(70000);
+    expect(myBook.getWords()).toBe(70000);
+  });
+
+  it('return words per page', () => {
+    myBook.setWords(70000);
+    expect(myBook.wordsPerPage()).toBe(200);
   });
 
 });
